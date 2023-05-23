@@ -7,10 +7,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Repository
-public class ContentControllerRepository {
+public class ContentCollectionRepository {
     private final List<Content> content = new ArrayList<>();
 
-    public ContentControllerRepository() {
+    public ContentCollectionRepository() {
     }
 
     public List<Content> findAll() {
