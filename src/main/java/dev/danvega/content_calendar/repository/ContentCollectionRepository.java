@@ -14,31 +14,34 @@ import java.util.Optional;
 @Repository
 public class ContentCollectionRepository {
 
-    private final List<Content> content = new ArrayList<>();
+    private final List<Content> contentList = new ArrayList<>();
 
     public ContentCollectionRepository() {
     }
 
     public List<Content> findAll() {
-        return content;
+        return contentList;
     }
 
     public Optional<Content> findById(Integer id) {
-        return content.stream().filter(c -> c.id().equals(id)).findFirst();
+        return contentList.stream().filter(c -> c.id().equals(id)).findFirst();
+    }
+
+    public void save(Content content) {
+        contentList.add(content);
     }
 
     @PostConstruct
     private void init(){
-        Content c = new Content( id: 1, 
-        title: "My First Blog Post", 
-        desc: "My first blog post",
-        Status.IDEA,
-        Type.ARTICLE,
-        LocalDateTime.now(),
-        dateUpdated: null,
-        url: "");
+        Content content = new Content(id: 1, 
+                title: "My First Blog Post",
+                desc: "My first blog post",
+                Status.IDEA,
+                Type.ARTICLE,
+                LocalDateTime.now(),
+                dateUpdated: null,
+                url: "");
 
-
-        content.add(c);
+        content.add(content);
     }
 }
