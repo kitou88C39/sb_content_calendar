@@ -28,20 +28,30 @@ public class ContentCollectionRepository {
     }
 
     public void save(Content content) {
+        contentList.removeIf(c -> c.id().equals(content.id()));
         contentList.add(content);
     }
 
     @PostConstruct
-    private void init(){
-        Content content = new Content(id: 1, 
-                title: "My First Blog Post",
-                desc: "My first blog post",
+    private void init() {
+        Content content = new Content(1,
+                "My First Blog Post",
+                "My first blog post",
                 Status.IDEA,
                 Type.ARTICLE,
                 LocalDateTime.now(),
-                dateUpdated: null,
-                url: "");
+                null,
+                "");
 
-        content.add(content);
+        contentList.add(content);
+
+    }
+
+    public boolean existsById(Integer id) {
+        return contentList.stream().filter(c -> c.id().equals(id)).count() == 1;
+    }
+
+    public void delete(Integer id) {
+        contentList.removeIf(c -> c.id().equals(id));
     }
 }
