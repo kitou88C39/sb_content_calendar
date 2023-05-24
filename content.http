@@ -18,3 +18,17 @@ Content-Type: application/json
     "dateUpdated": null,
     "url": ""
 }
+
+### Update exisiting Content
+PUT http://localhost:8080/api/content/1
+Content-Type: application/json
+{
+    "id": 1, 
+    "title": "MY FIRST POST!!!",
+    "desc": "MY FIRST POST!!!",
+    "Status": "IDEA",
+    "Type" :"ARTICLE",
+    "dateCreated": "2023-02-13T10:25:02.838496",
+    "dateUpdated": "2023-02-13T10:25:02.838496",
+    "url": "http://localhost:8080/my-first-blog-post"
+}
