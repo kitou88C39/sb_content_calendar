@@ -38,7 +38,8 @@ public class ContentController {
 
     }
 
-    public void create(Contentn content) {
+    @PostMapping("")
+    public void create(@RequestBody Content content) {
         repository.save(content);
     }
 }
